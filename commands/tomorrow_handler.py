@@ -51,7 +51,7 @@ def day_of_week(user_id, body):
         message += str(subj_number) + '.' + str((sheet.row_values(i)[klassnumber])).lower() + '\n'
         subj_number += 1
 
-    return message
+    return message, now_date
 
 
 
