@@ -10,7 +10,7 @@ from commands.Grade_handler import list_with_double_classes as list
 
 
 
-rb = xlrd.open_workbook('C:\\Users\\alex\\Desktop\\r.xlsx')
+rb = xlrd.open_workbook('r.xlsx')
 
 
 
