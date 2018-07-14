@@ -30,7 +30,7 @@ def tomorrow_day_number():
     localDatetime = utcmoment.astimezone(pytz.timezone('Asia/Ashkhabad'))
 
     if int(str(utcmoment)[11]+ str(utcmoment)[12]) > int(str(localDatetime)[11]+str(localDatetime)[12]):
-        return now_date.isoweekday() % 7 + 1
+        return (now_date.isoweekday() % 7 + 1) % 7
     else:
         return now_date.isoweekday() % 7
 
