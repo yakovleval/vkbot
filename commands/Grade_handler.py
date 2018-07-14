@@ -11,7 +11,7 @@ def klass_change(user_id, body):
     message = 'класс, для которого отсылается расписание, изменён на ' + '"' + s + '"'
     return message
 
-def request_for_commands(user_id):
+def klass_of_user(user_id):
     if user_id not in users:
         return ''
     else:
