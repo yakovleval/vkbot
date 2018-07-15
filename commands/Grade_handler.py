@@ -13,18 +13,18 @@ def klass_change(user_id, user_message):
     return message
     '''
     str_user_id = str(user_id)
-    file = open('users.txt')
+    file = open('users.txt', encoding='ANSI')
     lines = file.readlines()
     file.close()
     if str_user_id + '\n' in lines:
-        f = open('users.txt')
+        f = open('users.txt', encoding='ANSI')
         a = f.readlines()
 
         f.close()
         index = a.index(str_user_id + '\n') + 1
         a[index] = user_message + '\n'
 
-        f = open('users.txt', 'w')
+        f = open('users.txt', 'w', encoding='ANSI')
         for line in a:
             f.write(line)
         f.close()
@@ -34,7 +34,7 @@ def klass_change(user_id, user_message):
 
 
     else:
-        f = open('users.txt', 'a')
+        f = open('users.txt', 'a', encoding='ANSI')
         f.write(str_user_id + '\n')
         f.write(user_message + '\n')
         f.close()
@@ -43,7 +43,7 @@ def klass_change(user_id, user_message):
     return message
 
 def klass_of_user(user_id):
-    file = open('users.txt')
+    file = open('users.txt', encoding='ANSI')
     lines = file.readlines()
     file.close()
     if str(user_id) + '\n' not in lines:
