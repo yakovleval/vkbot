@@ -46,7 +46,8 @@ def klass_column_in_spreadsheet(body, user_id):
     :return: номер столбца, в котором нужный класс
     '''
     global sheet
-    if klass.users[user_id][0] + klass.users[user_id][1] == '11':
+    userklass = klass.klass_of_user(user_id)
+    if userklass[0] + userklass[1] == '11':
         sheet = rb.sheet_by_index(1)
     else:
         sheet = rb.sheet_by_index(0)

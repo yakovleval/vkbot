@@ -3,19 +3,53 @@ import command_system
 list_with_double_classes = ['11г', '11к', '11л', '10в', '10к']
 
 
-users = {}
+#users = {}
 
-def klass_change(user_id, body):
+def klass_change(user_id, user_message):
+    '''
     s = body[0] + body[1] + body[-1].lower()
     users[user_id] = s
     message = 'класс, для которого отсылается расписание, изменён на ' + '"' + s + '"'
     return message
+    '''
+    str_user_id = str(user_id)
+    file = open('commands\\users.txt')
+    lines = file.readlines()
+    file.close()
+    if str_user_id + '\n' in lines:
+        f = open('commands\\users.txt')
+        a = f.readlines()
+
+        f.close()
+        index = a.index(str_user_id + '\n') + 1
+        a[index] = user_message + '\n'
+
+        f = open('commands\\users.txt', 'w')
+        for line in a:
+            f.write(line)
+        f.close()
+
+
+
+
+
+    else:
+        f = open('commands\\users.txt', 'a')
+        f.write(str_user_id + '\n')
+        f.write(user_message + '\n')
+        f.close()
+    s = user_message[0] + user_message[1] + user_message[-1].lower()
+    message = 'класс, для которого отсылается расписание, изменён на ' + '"' + s + '"'
+    return message
 
 def klass_of_user(user_id):
-    if user_id not in users:
+    file = open('commands\\users.txt')
+    lines = file.readlines()
+    file.close()
+    if str(user_id) + '\n' not in lines:
         return ''
     else:
-        return users[user_id]
+        return lines[lines.index(str(user_id)+'\n') + 1][0] + lines[lines.index(str(user_id)+'\n') + 1][1] + lines[lines.index(str(user_id)+'\n') + 1][2]
 
 
 
