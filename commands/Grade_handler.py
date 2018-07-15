@@ -13,7 +13,7 @@ def klass_change(user_id, user_message):
     return message
     '''
     str_user_id = str(user_id)
-    file = open('users.txt', encoding='utf-8')
+    file = open('users.txt')
     lines = file.readlines()
     file.close()
     if str_user_id + '\n' in lines:
@@ -38,8 +38,8 @@ def klass_change(user_id, user_message):
         f.write(str_user_id + '\n')
         f.write(user_message + '\n')
         f.close()
-    s = user_message[0] + user_message[1] + user_message[-1].lower()
-    message = 'класс, для которого отсылается расписание, изменён на ' + '"' + s + '"'
+    message = 'класс, для которого отсылается расписание, изменён на ' + '"' + user_message + '"'
+    print(user_message)
     return message
 
 def klass_of_user(user_id):
