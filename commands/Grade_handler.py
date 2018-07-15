@@ -13,7 +13,7 @@ def klass_change(user_id, user_message):
     return message
     '''
     str_user_id = str(user_id)
-    file = open('users.txt')
+    file = open('users.txt', encoding='utf-8')
     lines = file.readlines()
     file.close()
     if str_user_id + '\n' in lines:
