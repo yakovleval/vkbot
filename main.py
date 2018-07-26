@@ -20,8 +20,6 @@ def processing():
     if data['type'] == 'confirmation':
         return confirmation_token
     elif data['type'] == 'message_new':
-        session = vk.Session()
-        api = vk.API(session, v=5.50)
         user_id = data['object']['user_id']
         user_message = data['object']['body']
         send_message(user_id, user_message)  # отсылает ответ
